@@ -1,0 +1,25 @@
+TODO
+----
+2002/11/13.1  udp server uses too much CPU time.
+2002/11/25.1  Kylix version seems to do weird things when you press Stop and
+	      then Start again.
+
+DONE
+----
+2002/10/25.4  server crashes when two protocols specified
+2002/10/25.1  echo reply type get's weird delete [] crash... Todo
+	      server_client must allocate reply when ever it is created. 
+	      Not only one at startup.
+2002/10/25.2  udp protocol crashes server on exit
+2002/10/25.3  udp protocol does not send packet back..
+2002/10/25.7  increasing payload does not seem to work. 
+2002/10/28.1  client packet size of 8 seems to confuse server
+2002/10/25.6  server seems to crash with more than 14 simultanious connections.
+2002/10/25.5  sometimes server crashes when current client is connected and 
+	      new client adds connections.
+2002/10/30.1  BSD port: fastdep does not compile
+2002/10/30.2  BSD port: some Makefiles use make and not $(MAKE)
+2002/10/30.3  BSD port: change documentation to say use gmake
+2002/10/30.4  BSD port: threads stack size most likely to small
+2002/10/30.5  BSD port: some files in os/ needs ifdef __FreeBSD__
+

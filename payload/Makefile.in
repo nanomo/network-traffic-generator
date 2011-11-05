@@ -1,0 +1,38 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+SUBDIRS = fixed increasing random
+CPPFLAGS = @CPPFLAGS@
+
+all:    libloadpayload.a
+	$(MAKE) -C fixed $@
+	$(MAKE) -C increasing $@
+	$(MAKE) -C random $@
+
+clean:
+	$(MAKE) -C fixed $@
+	$(MAKE) -C increasing $@
+	$(MAKE) -C random $@
+	-rm *~ core *.o libloadpayload.a Makefile.dep
+
+dep:    Makefile.dep
+	$(MAKE) -C fixed $@
+	$(MAKE) -C increasing $@
+	$(MAKE) -C random $@
+
+install:
+	$(MAKE) -C fixed $@
+	$(MAKE) -C increasing $@
+	$(MAKE) -C random $@
+	$(INSTALL_PROGRAM) libloadpayload.a ../lib_static/
+
+
+libloadpayload.a: loadpayload.o
+	-rm $@
+	$(AR) rcv $@ $^ 
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+-include Makefile.dep
+

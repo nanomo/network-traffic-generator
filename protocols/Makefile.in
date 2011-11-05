@@ -1,0 +1,43 @@
+ALL = ../lib_static/libos.a proto_test libloadprotocol.a
+CPPFLAGS= @CPPFLAGS@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+
+
+.PHONY: msubdirs clean dep
+
+all: msubdirs Makefile.dep $(ALL)
+
+../lib_static/libos.a:
+	$(MAKE) -C ../os all install
+
+msubdirs:
+	$(MAKE) -C tcp all
+	$(MAKE) -C udp all
+
+clean:
+	-rm *.o $(ALL) core *~ Makefile.dep
+	-$(MAKE) -C tcp $@
+	-$(MAKE) -C udp $@
+
+proto_test: proto_test.o loadprotocol.o
+	$(CC) -g -o $@ $^ -L../lib_static -los -lstdc++ @LIBS@
+
+dep: Makefile.dep
+	$(MAKE) -C tcp $@
+	$(MAKE) -C udp $@
+
+install:
+	$(MAKE) -C tcp $@
+	$(MAKE) -C udp $@
+	$(INSTALL_PROGRAM) libloadprotocol.a ../lib_static/
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+-include Makefile.dep
+
+libloadprotocol.a: loadprotocol.o
+	-rm $@
+	$(AR) rcv $@ $^

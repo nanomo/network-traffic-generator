@@ -1,0 +1,9 @@
+README for basic server for traffic
+-----------------------------------
+
+This server will use the reply and protocol plug-in's provided to it and
+listen on the specified ports with the specified protocols for connections
+from clients. Once a connection has been detected a new instance will be
+create to read the payload and answer with the reply.
+
+The server has a limit of accepting packets of up to 100kB in size.

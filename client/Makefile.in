@@ -1,0 +1,24 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ALL = libloadclient.a
+CPPFLAGS = -g
+
+all: $(ALL)
+	$(MAKE) -C fixed $@
+
+clean:
+	$(MAKE) -C fixed $@
+	-rm *.o *~ $(ALL) core
+
+dep:
+	$(MAKE) -C fixed $@
+
+install:
+	$(MAKE) -C fixed $@
+	$(INSTALL_PROGRAM) $(ALL) ../lib_static/
+
+
+libloadclient.a: loadclient.o
+	-rm $@
+	$(AR) rcv $@ $^

@@ -1,0 +1,27 @@
+ALL = protocol_udp.so udp_test
+UDPOBJ = udp_proto.o traffic_udp.o udp_connection.o udp_server.o
+CPPFLAGS = @CPPFLAGS@ 
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+
+all: makefile.dep $(ALL)
+
+protocol_udp.so: $(UDPOBJ)
+	$(CC) --export-dynamic -shared -o $@ $^ -lgcc  -L../../lib_static -los @LIBS@
+
+udp_test: udp_test.o $(UDPOBJ)
+	$(CC) -g -o $@ $^ -lstdc++  -L../../lib_static -los @LIBS@
+
+clean:
+	-rm $(UDPOBJ) core $(ALL) *~ *.o makefile.dep
+
+install:
+	$(INSTALL_PROGRAM) protocol_udp.so ../../lib_dynamic/
+
+dep: makefile.dep
+
+makefile.dep:
+	@FASTDEP@ *.cpp > makefile.dep
+
+-include makefile.dep

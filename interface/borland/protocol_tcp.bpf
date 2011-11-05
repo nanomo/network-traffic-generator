@@ -1,0 +1,10 @@
+USEUNIT("protocol_tcp.cpp");
+USEUNIT("..\..\protocols\tcp\tcp_connection.cpp");
+USEUNIT("..\..\protocols\tcp\tcp_proto.cpp");
+USEUNIT("..\..\protocols\tcp\tcp_server.cpp");
+USEUNIT("..\..\protocols\tcp\traffic_tcp.cpp");
+USELIB("libos.lib");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+DllEntryPoint

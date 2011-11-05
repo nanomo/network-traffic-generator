@@ -1,0 +1,24 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ALL =  reply_echo.so
+CPPFLAGS = @CPPFLAGS@
+
+all: $(ALL)
+
+clean:
+	-rm *.o *~ core Makefile.dep $(ALL)
+
+dep: Makefile.dep
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+-include Makefile.dep
+
+reply_echo.so: echo.o
+	 $(CC) --export-dynamic -shared -o $@ $^ -lgcc -lstdc++
+
+install:
+	$(INSTALL_PROGRAM) $(ALL) ../../lib_dynamic/
+

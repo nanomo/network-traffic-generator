@@ -1,0 +1,24 @@
+#ifndef __MYTYPES_H__
+#define __MYTYPES_H__
+
+/* We want to have a 32-bit unsigned integer type */
+//#define UINT32 unsigned long
+
+/* 64 bit int  - already defined in Windows */
+//#define LONGLONG __int64
+
+/* Windows does not know of socklen_t */
+#define socklen_t int
+
+/* Product Name */
+#define PRODUCT_NAME "traffic"
+
+/* Product Version */
+#define PRODUCT_VERSION "0.1.2"
+
+#define EXPORT  WINAPI __export
+
+/* Shutdown flag Windows does not understand */
+#define SHUT_RDWR SD_BOTH
+
+#endif

@@ -1,0 +1,10 @@
+README for fixed payload for traffic
+------------------------------------
+
+This payload will return a fixed size packet to be sent to the server.
+
+Payloads normally accept minimum, maximum, increment and time as parameters.
+
+The fixed payload ignores all of these parameters except maximum to
+determine the size of the payload the send. This maximum should be at least
+8.

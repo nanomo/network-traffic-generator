@@ -1,0 +1,58 @@
+object AboutBox: TAboutBox
+  Left = 322
+  Top = 246
+  Width = 498
+  Height = 440
+  HorzScrollBar.Range = 489
+  VertScrollBar.Range = 437
+  ActiveControl = OKButton
+  BorderStyle = fbsDialog
+  Caption = 'About Traffic'
+  Color = clButton
+  Position = poScreenCenter
+  Scaled = False
+  PixelsPerInch = 81
+  object AboutPanel: TPanel
+    Left = 8
+    Top = 8
+    Width = 481
+    Height = 401
+    BevelInner = bvRaised
+    BevelOuter = bvLowered
+    TabOrder = 0
+    object ProductName: TLabel
+      Left = 8
+      Top = 8
+      Width = 89
+      Height = 17
+      Caption = 'Product Name'
+      Layout = tlCenter
+    end
+    object Copyright: TLabel
+      Left = 8
+      Top = 32
+      Width = 230
+      Height = 17
+      Caption = 'Copyright Robert Sandilands @2002'
+      Layout = tlCenter
+    end
+    object TextViewer: TTextViewer
+      Left = 8
+      Top = 56
+      Width = 465
+      Height = 337
+      FileName = '/home/robert/sourceforge/newtraffic/README'
+      TabOrder = 2
+    end
+  end
+  object OKButton: TButton
+    Left = 207
+    Top = 412
+    Width = 75
+    Height = 25
+    Caption = 'OK'
+    Default = True
+    ModalResult = 1
+    TabOrder = 1
+  end
+end

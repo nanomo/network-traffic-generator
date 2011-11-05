@@ -1,0 +1,20 @@
+Before making a release the following have to be done:
+
+1. Update version number in configure.in
+2. Update version number in traffic.spec
+3. Update README
+4. Update CHANGELOG
+5. Commit everything to CVS
+6. Export everything into a new directory.
+7. Rename new directory to traffic-VERSION
+8. tar cvzf traffic-VERSION.tgz traffic-VERSION/*
+9. zip -r9 traffic-VERSION.zip traffic-VERSION/*
+10. su
+11. copy traffic-VERSION.tgz to /usr/src/RPM/SOURCES
+12. rpm -ba traffic.spec
+13. Go to Windows and using Borland Builder Build the code
+14. Go to InstallShield and build the distribution
+15. Go to PackageForTheWeb and build Traffic-VERSION.exe
+16. Upload to upload.sourceforge.net/incoming the .zip .tgz .rpm .src.rpm
+.exe files.
+17. Do release on sourceforge and freshmeat

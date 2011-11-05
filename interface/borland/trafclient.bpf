@@ -1,0 +1,10 @@
+USEUNIT("..\cmdline\client_config.cpp");
+USEUNIT("..\cmdline\trafclient.cpp");
+USELIB("libos.lib");
+USELIB("loadpayload.lib");
+USELIB("loadprotocol.lib");
+USELIB("loadclient.lib");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main

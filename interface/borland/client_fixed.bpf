@@ -1,0 +1,11 @@
+USEUNIT("client_fixed.cpp");
+USEUNIT("..\..\client\fixed\fixed_workers.cpp");
+USEUNIT("..\..\client\fixed\fixed_client.cpp");
+USEUNIT("..\..\client\fixed\fixed.cpp");
+USELIB("libos.lib");
+USELIB("loadpayload.lib");
+USELIB("loadprotocol.lib");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+DllEntryPoint

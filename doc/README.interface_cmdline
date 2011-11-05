@@ -1,0 +1,64 @@
+README for command line interfaces to traffic
+---------------------------------------------
+
+There is two executables in this directory: trafclient and trafserver.
+
+trafserver is the command-line server.
+
+trafclient is the command-line client.
+
+trafserver usage
+----------------
+
+./trafserver -sn [server plug-in] -rn [reply plug-in] -L [plug-in location] [protocol plug-in 1]
+[port 1] [protocol plug-in 2] [port 2] ...
+
+Eg. ./trafserver -sn basic -rn echo tcp 11111 udp 11111 tcp 11112 udp 7001
+
+This will start up the basic server (Look at README.server_basic for a
+description) with the echo reply plug-in (Look at README.reply_echo
+for a description) and listen on TCP port 11111, UDP port 11111, TCP port
+11112 and UDP port 7001 for connections from clients. You need to specify at
+least one protocol, but you can specify as many as the command line can
+handle. To see what protocols are supported look at README.protocols.
+The server name and reply name must be specified.
+
+The -L parameter is needed if trafserver can not locate the plug-ins
+automatically. This should normally not be needed.
+
+trafclient usage
+----------------
+
+./trafclient -dn [protocol name] -dp [protocol port] -da [protocol address]
+-pn [payload name] -pmin [payload min] -pmax [payload max] -ptim [payload
+time] -pinc [payload increment] -cn [client name] -cmin [client min] -cmax
+[client max] -cinc [client increment] -ctim [client time] -L [plug-in
+location] -n [number of clients]
+
+Eg. ./trafclient -dn tcp -dp 11111 -da 127.0.0.1 -pn fixed -pmax 1000 -cn
+fixed -cmax 1 -n 1
+
+This will start up a client that connects to the server on the local machine
+on TCP port 11111. It uses the fixed client (README.client_fixed), the
+fixed payload (README.payload_fixed) and it will only create one
+client and make one connection to the server.
+
+Eg. ./trafclient -dn tcp -dp 11112 -da 127.0.0.1 -pn random -pmin 100 -pmax 1000
+-cn fixed -cmax 100 -n 100
+
+This will start up 100 clients that connects to the server on the local
+machine on TCP port 11112 using the fixed client with the random payload
+(README.payload_random) which will deliver random size payloads
+between 100 and 1000 bytes in size to 100 connections to the server.
+
+The -cmin, -cmax, -ctim, -cinc parameters depend on the clients
+interpretation of them and the clients documentation needs to be consulted
+about them. This can be found under README.clients.
+
+The -pmin, -pmax, -ptim, -pinc parameters depend on the payloads
+interpretation of them and the payload documentation needs to be consulted
+about them. This can be found under README.payload.
+
+The infrastructure is just so powerful that even this command-line client is
+limited in what it can do, although the command-line is quite confusing.
+Hopefully there will be a X and/or curses client available soon.

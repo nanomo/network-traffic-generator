@@ -1,0 +1,19 @@
+#ifndef __MYTYPES_H__
+#define __MYTYPES_H__
+
+/* We want to have a 32-bit unsigned integer type */
+#define UINT32 @UINT32@
+
+/* 64 bit int */
+#define LONGLONG long long
+
+/* Product Name */
+#define PRODUCT_NAME "@PRODUCTNAME@"
+
+/* Product Version */
+#define PRODUCT_VERSION "@PRODUCTVERSION@"
+
+/* Stupid Windows _export stuff */
+#define EXPORT
+
+#endif

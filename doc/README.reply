@@ -1,0 +1,9 @@
+README for reply plug-in for traffic
+------------------------------------
+
+There are two documented reply types for the traffic server. Please consult
+the referred documents for more information about them:
+
+ack (README.reply_ack)
+echo (README.reply_echo)
+

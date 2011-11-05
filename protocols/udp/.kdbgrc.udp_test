@@ -1,0 +1,28 @@
+[Breakpoint 0]
+Enabled=true
+File=udp_test.cpp
+Line=60
+Temporary=false
+
+[Breakpoint 1]
+Enabled=true
+File=udp_proto.cpp
+Line=83
+Temporary=false
+
+[Breakpoint 2]
+Enabled=true
+File=udp_test.cpp
+Line=130
+Temporary=false
+
+[General]
+DebuggerCmdStr=
+FileVersion=1
+ProgramArgs=
+TTYLevel=7
+WorkingDirectory=
+
+[Memory]
+ColumnWidths=80,0
+NumExprs=0

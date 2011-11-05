@@ -1,0 +1,10 @@
+README for random payload for traffic
+------------------------------------
+
+This payload will return a random size packet to be sent to the server.
+
+Payloads normally accept minimum, maximum, increment and time as parameters.
+
+The random payload will select a random size between the minimum and maximum
+specified and will return this sized payload [time] times. The increment
+parameter is ignored.

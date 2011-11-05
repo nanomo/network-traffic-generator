@@ -1,0 +1,23 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ALL = payload_random.so
+CPPFLAGS = @CPPFLAGS@
+
+all: $(ALL)
+
+payload_random.so: random.o
+	$(CC) --export-dynamic -shared -o $@ $^ -lgcc -lstdc++
+
+clean:
+	-rm core *~ *.o $(ALL) Makefile.dep
+
+install:
+	$(INSTALL_PROGRAM) $(ALL) ../../lib_dynamic/
+
+dep: Makefile.dep
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+-include Makefile.dep

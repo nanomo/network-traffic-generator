@@ -1,0 +1,6 @@
+README for ack reply for traffic
+--------------------------------
+
+This reply plug-in will reply with a 8-byte payload for the reply packet
+sent by the server. This is the minimum sized packet that can be sent using
+traffic.

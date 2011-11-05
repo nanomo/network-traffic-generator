@@ -1,0 +1,116 @@
+[PackageForTheWeb]
+Version=2.0
+
+[Options]
+Title=Traffic
+Company=Private
+CompanyEMail=rsandila@netscape.net
+BasePath=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1
+ImportPath=
+UseRTF=0
+SaveFiles=0
+SubFolders=1
+ApplicationName=Traffic
+Description=Traffic Generator
+Comments=GPL License
+Notice=Copyright @2002 Robert Sandilands
+Version=0.1.3
+OutputSpec=C:\work\program\traffic-0.1.2\interface\borland\Traffic-0.1.3.exe
+GUIDs=0
+Type=2
+Compress=1
+Sign=0
+Transfer=0
+Files=10
+
+[Engine]
+Setup=SETUP.EXE
+
+[Runtime]
+Welcome=
+License=
+Prompt=
+Password=
+DefaultPath=
+Language=English
+WindowStyle=0
+Options=34
+Execute=SETUP.EXE
+CmdLine=/SMS
+AllowChangeTarget=0
+AllowDelete=0
+LaunchEXE=1
+
+[Extension]
+Server=
+Calls=0
+
+[Code Signing]
+CompanyURL=
+SpecFile=
+KeyFile=
+Method=0
+
+; ~~~~~~~~~~ File Section ~~~~~~~~~~~
+[SubFolders]
+Count=0
+
+[File 1]
+Name=_SETUP.LIB
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=2097153
+Disk=0
+
+[File 2]
+Name=_INST32I.EX_
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=524289
+Disk=0
+
+[File 3]
+Name=_ISDEL.EXE
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=589825
+Disk=0
+
+[File 4]
+Name=SETUP.EXE
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=589825
+Disk=0
+
+[File 5]
+Name=SETUP.INS
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=2097153
+Disk=0
+
+[File 6]
+Name=_SETUP.DLL
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=655377
+Disk=0
+
+[File 7]
+Name=SETUP.INI
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=1
+Disk=0
+
+[File 8]
+Name=SETUP.PKG
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=1
+Disk=0
+
+[File 9]
+Name=_SETUP.1
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=2097153
+Disk=0
+
+[File 10]
+Name=DISK1.ID
+Path=C:\work\program\traffic-0.1.2\interface\borland\TRAFFIC\650MB\DISK1\
+Flags=1
+Disk=0

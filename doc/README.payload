@@ -1,0 +1,11 @@
+README for payloads for traffic
+-------------------------------
+
+Three payloads are documented:
+
+1. fixed (README.payload_fixed)
+2. increasing (README.payload_increasing)
+3. random (README.payload_random)
+
+Please read the referred documents for instructions on how to use the payload
+in question.

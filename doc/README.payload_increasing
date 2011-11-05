@@ -1,0 +1,16 @@
+README for increasing payload for traffic
+------------------------------------
+
+This payload will return an increasing sized packet to be sent to the server.
+The packet will increase by a specified increment starting from a specified
+minimum to a specified maximum. Once it reaches that maximum it will keep on
+sending that sized payload. Each size packet, except the maximum sized
+packet will be sent a specified number of times.
+
+Payloads normally accept minimum, maximum, increment and time as parameters.
+
+The payload starts with the minimum sized packet. This must be at least 8
+bytes in size and must be less than the maximum supplied. It will send this
+packet size [time] times before it will add the increment to it. If adding
+the increment to it makes it bigger than the maximum specified size, the
+maximum sized packet will be sent.

@@ -1,0 +1,24 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ALL = client_fixed.so
+CFOBJ = fixed_client.o fixed.o fixed_workers.o
+CPPFLAGS = @CPPFLAGS@
+
+all: $(ALL)
+
+clean:
+	-rm $(ALL) *.o *~ Makefile.dep core
+
+dep: Makefile.dep
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+-include Makefile.dep
+
+install:
+	$(INSTALL_PROGRAM) $(ALL) ../../lib_dynamic/
+
+client_fixed.so: $(CFOBJ)
+	$(CC) --export-dynamic -shared -o $@ $^ ../../lib_static/libos.a ../../lib_static/libloadprotocol.a ../../lib_static/libloadpayload.a -lgcc

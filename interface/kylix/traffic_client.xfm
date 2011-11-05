@@ -1,0 +1,454 @@
+object TrafficClientForm: TTrafficClientForm
+  Left = 257
+  Top = 112
+  Width = 434
+  Height = 490
+  HorzScrollBar.Range = 433
+  VertScrollBar.Range = 489
+  BorderStyle = fbsDialog
+  Caption = 'Traffic Client'
+  Color = clBackground
+  Position = poDesktopCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 81
+  TextHeight = 17
+  TextWidth = 7
+  object Panel1: TPanel
+    Left = 12
+    Top = -4
+    Width = 421
+    Height = 493
+    TabOrder = 0
+    object SettingsPanel: TPanel
+      Left = 8
+      Top = 8
+      Width = 405
+      Height = 385
+      TabOrder = 0
+      object GroupBox1: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 389
+        Height = 109
+        Caption = 'Payload'
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 8
+          Top = 20
+          Width = 37
+          Height = 17
+          Caption = 'Name'
+        end
+        object Label2: TLabel
+          Left = 8
+          Top = 52
+          Width = 23
+          Height = 17
+          Caption = 'Min'
+        end
+        object Label3: TLabel
+          Left = 8
+          Top = 80
+          Width = 27
+          Height = 17
+          Caption = 'Max'
+        end
+        object PayloadComboBox: TComboBox
+          Left = 64
+          Top = 16
+          Width = 140
+          Height = 25
+          AutoComplete = True
+          Duplicates = dupIgnore
+          ItemHeight = 19
+          Items.Strings = (
+            'fixed'
+            'increasing'
+            'random')
+          ItemIndex = 0
+          TabOrder = 3
+          Text = 'fixed'
+          OnChange = PayloadComboBoxChange
+          OnClick = PayloadComboBoxClick
+        end
+        object PayloadMinEdit: TEdit
+          Left = 64
+          Top = 48
+          Width = 100
+          Height = 25
+          TabOrder = 4
+          Text = '8'
+        end
+        object PayloadMaxEdit: TEdit
+          Left = 64
+          Top = 76
+          Width = 100
+          Height = 25
+          TabOrder = 5
+          Text = '10000'
+        end
+        object Label4: TLabel
+          Left = 212
+          Top = 20
+          Width = 31
+          Height = 17
+          Caption = 'Time'
+        end
+        object Label5: TLabel
+          Left = 212
+          Top = 52
+          Width = 63
+          Height = 17
+          Caption = 'Increment'
+        end
+        object PayloadTimeEdit: TEdit
+          Left = 280
+          Top = 16
+          Width = 100
+          Height = 25
+          TabOrder = 8
+          Text = '1'
+        end
+        object PayloadIncrementEdit: TEdit
+          Left = 280
+          Top = 48
+          Width = 100
+          Height = 25
+          TabOrder = 9
+          Text = '1'
+        end
+        object PayloadHelpBitBtn: TBitBtn
+          Left = 308
+          Top = 76
+          Width = 75
+          Height = 25
+          TabOrder = 10
+          OnClick = PayloadHelpBitBtnClick
+          Kind = bkHelp
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 8
+        Top = 124
+        Width = 389
+        Height = 113
+        Caption = 'Client'
+        TabOrder = 1
+        object Label6: TLabel
+          Left = 8
+          Top = 20
+          Width = 37
+          Height = 17
+          Caption = 'Name'
+        end
+        object ClientComboBox: TComboBox
+          Left = 64
+          Top = 16
+          Width = 140
+          Height = 25
+          AutoComplete = True
+          Duplicates = dupIgnore
+          ItemHeight = 19
+          Items.Strings = (
+            'fixed')
+          ItemIndex = 0
+          TabOrder = 1
+          Text = 'fixed'
+          OnChange = ClientComboBoxChange
+          OnClick = ClientComboBoxClick
+        end
+        object Label7: TLabel
+          Left = 8
+          Top = 52
+          Width = 23
+          Height = 17
+          Caption = 'Min'
+        end
+        object ClientMinEdit: TEdit
+          Left = 64
+          Top = 48
+          Width = 100
+          Height = 25
+          TabOrder = 3
+          Text = '1'
+        end
+        object Label8: TLabel
+          Left = 8
+          Top = 84
+          Width = 27
+          Height = 17
+          Caption = 'Max'
+        end
+        object ClientMaxEdit: TEdit
+          Left = 64
+          Top = 80
+          Width = 100
+          Height = 25
+          TabOrder = 5
+          Text = '10'
+          OnChange = ClientMaxEditChange
+        end
+        object Label9: TLabel
+          Left = 212
+          Top = 20
+          Width = 31
+          Height = 17
+          Caption = 'Time'
+        end
+        object ClientTimeEdit: TEdit
+          Left = 280
+          Top = 16
+          Width = 100
+          Height = 25
+          TabOrder = 7
+          Text = '1'
+        end
+        object Label10: TLabel
+          Left = 212
+          Top = 52
+          Width = 63
+          Height = 17
+          Caption = 'Increment'
+        end
+        object ClientIncrementEdit: TEdit
+          Left = 280
+          Top = 48
+          Width = 100
+          Height = 25
+          TabOrder = 9
+          Text = '1'
+        end
+        object ClientHelpBitBtn: TBitBtn
+          Left = 308
+          Top = 80
+          Width = 75
+          Height = 25
+          TabOrder = 10
+          OnClick = ClientHelpBitBtnClick
+          Kind = bkHelp
+        end
+      end
+      object GroupBox3: TGroupBox
+        Left = 8
+        Top = 244
+        Width = 389
+        Height = 85
+        Caption = 'Protocol'
+        TabOrder = 2
+        object Label11: TLabel
+          Left = 8
+          Top = 24
+          Width = 37
+          Height = 17
+          Caption = 'Name'
+        end
+        object Label12: TLabel
+          Left = 8
+          Top = 56
+          Width = 52
+          Height = 17
+          Caption = 'Address'
+        end
+        object ProtocolComboBox: TComboBox
+          Left = 64
+          Top = 20
+          Width = 140
+          Height = 25
+          AutoComplete = True
+          Duplicates = dupIgnore
+          ItemHeight = 19
+          Items.Strings = (
+            'tcp'
+            'udp')
+          ItemIndex = 0
+          TabOrder = 2
+          Text = 'tcp'
+          OnChange = ProtocolComboBoxChange
+        end
+        object Label13: TLabel
+          Left = 216
+          Top = 24
+          Width = 26
+          Height = 17
+          Caption = 'Port'
+        end
+        object ProtocolPortEdit: TSpinEdit
+          Left = 280
+          Top = 21
+          Width = 100
+          Height = 23
+          Max = 65536
+          Min = 1
+          TabOrder = 4
+          Value = 11111
+        end
+        object ProtocolAddressEdit: TEdit
+          Left = 64
+          Top = 52
+          Width = 233
+          Height = 25
+          TabOrder = 5
+          Text = '192.168.2.254'
+        end
+        object ProtocolHelpBitBtn: TBitBtn
+          Left = 304
+          Top = 52
+          Width = 75
+          Height = 25
+          TabOrder = 6
+          OnClick = ProtocolHelpBitBtnClick
+          Kind = bkHelp
+        end
+      end
+      object GroupBox4: TGroupBox
+        Left = 8
+        Top = 336
+        Width = 389
+        Height = 41
+        TabOrder = 3
+        object Label14: TLabel
+          Left = 8
+          Top = 12
+          Width = 79
+          Height = 17
+          Caption = 'Connections'
+        end
+        object NumConnectionsEdit: TSpinEdit
+          Left = 100
+          Top = 9
+          Width = 100
+          Height = 23
+          Max = 100000
+          TabOrder = 1
+          Value = 10
+          OnChanged = NumConnectionsEditChanged
+        end
+        object BitBtn1: TBitBtn
+          Left = 304
+          Top = 8
+          Width = 75
+          Height = 25
+          TabOrder = 2
+          OnClick = BitBtn1Click
+          Kind = bkHelp
+        end
+      end
+    end
+    object Panel2: TPanel
+      Left = 8
+      Top = 396
+      Width = 405
+      Height = 41
+      TabOrder = 1
+      object StartBitBtn: TBitBtn
+        Left = 12
+        Top = 8
+        Width = 75
+        Height = 25
+        Caption = '&Start'
+        TabOrder = 0
+        OnClick = StartBitBtnClick
+        Glyph.Data = {
+          6A010000424D6601000000000000760000002800000014000000140000000100
+          040000000000F0000000120B0000120B00001000000010000000000000000000
+          8000008000000080800080000000800080008080000080808000C0C0C0000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888888
+          8888888800008888888888888888888800008888888888888888888800008888
+          88888888777777780000888888888880000000780000888888888840FBFBF078
+          0000888888888480000000880000888888884888888888880000887777748888
+          77777778000080000007777000000078000080FFFF044440FBFBF07800008000
+          0008788000000088000088888884878888888888000088888888487877777778
+          0000888888888480000000780000888888888840FBFBF0780000888888888880
+          0000008800008888888888888888888800008888888888888888888800008888
+          88888888888888880000}
+      end
+      object StopBitBtn: TBitBtn
+        Left = 113
+        Top = 8
+        Width = 75
+        Height = 25
+        Caption = '&Stop'
+        Enabled = False
+        TabOrder = 1
+        OnClick = StopBitBtnClick
+        Glyph.Data = {
+          6A010000424D6601000000000000760000002800000014000000140000000100
+          040000000000F0000000120B0000120B00001000000010000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+          7777777700007777711111111177777700007777199999999917777700007771
+          9999999999917777000077199999999999991777000071999999999999999177
+          000019999999999999999917000019FFF99F99FFF9F9991700001999F99F99F9
+          F9F99917000019FFF99F99F9F9FFF917000019F9999F99F9F9F9F917000019FF
+          F9FFF9FFF9FFF917000019999999999999999917000019999999999999999917
+          0000719999999999999991770000771999999999999917770000777199999999
+          9991777700007777199999999917777700007777711111111177777700007777
+          77777777777777770000}
+      end
+      object AboutButton: TBitBtn
+        Left = 214
+        Top = 8
+        Width = 75
+        Height = 25
+        Caption = '&About'
+        TabOrder = 2
+        OnClick = AboutButtonClick
+        Kind = bkHelp
+      end
+      object QuitButton: TBitBtn
+        Left = 316
+        Top = 8
+        Width = 75
+        Height = 25
+        Caption = '&Quit'
+        TabOrder = 3
+        OnClick = QuitButtonClick
+        Kind = bkClose
+      end
+    end
+    object Panel3: TPanel
+      Left = 8
+      Top = 440
+      Width = 405
+      Height = 45
+      TabOrder = 2
+      object Label15: TLabel
+        Left = 12
+        Top = 4
+        Width = 68
+        Height = 17
+        Caption = 'Data Read'
+      end
+      object DataWrittenLabel1: TLabel
+        Left = 12
+        Top = 24
+        Width = 79
+        Height = 17
+        Caption = 'Data Written'
+      end
+      object DataReadLabel: TLabel
+        Left = 108
+        Top = 4
+        Width = 285
+        Height = 17
+        AutoSize = False
+        Caption = '0'
+      end
+      object DataWrittenLabel: TLabel
+        Left = 108
+        Top = 24
+        Width = 281
+        Height = 17
+        AutoSize = False
+        Caption = '0'
+      end
+    end
+  end
+  object ActivityTimer: TTimer
+    Enabled = False
+    OnTimer = ActivityTimerTimer
+    Left = 164
+    Top = 444
+  end
+end

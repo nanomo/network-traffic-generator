@@ -1,0 +1,33 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+CPPFLAGS = @CPPFLAGS@
+
+all:  libloadreply.a
+	$(MAKE) -C echo $@
+	$(MAKE) -C ack $@
+
+clean:
+	$(MAKE) -C echo $@
+	$(MAKE) -C ack $@
+	-rm *~ core *.o libloadreply.a Makefile.dep
+
+dep:    Makefile.dep
+	$(MAKE) -C echo $@
+	$(MAKE) -C ack $@
+
+install:
+	$(MAKE) -C echo $@
+	$(MAKE) -C ack $@
+	$(INSTALL_PROGRAM) libloadreply.a ../lib_static/
+
+
+libloadreply.a: loadreply.o
+	-rm $@
+	$(AR) rcv $@ $^
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+-include Makefile.dep
+

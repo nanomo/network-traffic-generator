@@ -1,0 +1,11 @@
+USEUNIT("server_basic.cpp");
+USEUNIT("..\..\server\basic\server_listener.cpp");
+USEUNIT("..\..\server\basic\server_client.cpp");
+USEUNIT("..\..\server\basic\basic.cpp");
+USELIB("loadreply.lib");
+USELIB("libos.lib");
+USELIB("loadprotocol.lib");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+DllEntryPoint

@@ -1,0 +1,11 @@
+README for fixed client for traffic
+-----------------------------------
+
+This client uses the payload and protocols passed to it to create a fixed
+number of connections and send a steady stream of payloads down it. It will
+read the reply and discard it.
+
+Clients take minimum, maximum, increment and time parameters.
+
+The fixed client ignores all the parameters except the maximum parameter.
+This is the number of instances it will create to send data to the server.

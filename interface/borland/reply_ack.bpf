@@ -1,0 +1,6 @@
+USEUNIT("reply_ack.cpp");
+USEUNIT("..\..\reply\ack\ack.cpp");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+DllEntryPoint

@@ -1,0 +1,7 @@
+1. Add Kylix version for Linux
+2. Install traffic.desktop file to `kde-config --expandvars --path apps` for
+KDE
+3. Figure out where to install GNOME desktop file.
+4. Add Kylix detection in configure.in with conversion of .bpr file and add
+it into the build process.
+

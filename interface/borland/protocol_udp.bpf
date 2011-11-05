@@ -1,0 +1,10 @@
+USEUNIT("protocol_udp.cpp");
+USEUNIT("..\..\protocols\udp\udp_connection.cpp");
+USEUNIT("..\..\protocols\udp\udp_proto.cpp");
+USEUNIT("..\..\protocols\udp\traffic_udp.cpp");
+USEUNIT("..\..\protocols\udp\udp_server.cpp");
+USELIB("libos.lib");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+DllEntryPoint

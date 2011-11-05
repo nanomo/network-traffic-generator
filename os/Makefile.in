@@ -1,0 +1,28 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ALLLIB = libos.a 
+ALLTEST = test_mthread
+ALL = $(ALLLIB) $(ALLTEST)
+CPPFLAGS = -g
+
+all: $(ALL)
+
+clean:
+	-rm *.o core $(ALL) *~ Makefile.dep
+	-rm linux/*~
+
+install:
+	$(INSTALL_PROGRAM) $(ALLLIB) ../lib_static/
+
+dep: Makefile.dep
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+libos.a: os.o
+	-rm $@
+	$(AR) rcv $@ $^ 
+
+test_mthread: test_mthread.o libos.a
+	$(CC) -o $@ $^ -lstdc++ @LIBS@

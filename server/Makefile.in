@@ -1,0 +1,29 @@
+ALL = libloadserver.a
+SUBDIRS = basic
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+CPPFLAGS = -g
+
+all: $(ALL)
+	$(MAKE) -C basic $@
+
+clean:
+	$(MAKE) -C basic $@
+	-rm Makefile.dep $(ALL) *.o core.* *.o
+
+dep:	Makefile.dep
+	$(MAKE) -C basic $@
+
+Makefile.dep:
+	fastdep *.cpp > Makefile.dep
+
+-include Makefile.dep
+
+libloadserver.a: loadserver.o
+	-rm $@
+	$(AR) rcv $@ $^
+
+install:
+	$(MAKE) -C basic $@
+	$(INSTALL_PROGRAM) $(ALL) ../lib_static/

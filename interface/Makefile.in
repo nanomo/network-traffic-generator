@@ -1,0 +1,43 @@
+SUBDIRS=cmdline
+STARTBCB=@STARTBCB@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+#
+# The kylix installation routine assumes all libraries needed has been installed
+#
+
+all:
+	$(MAKE) -C cmdline $@
+ifneq ($(strip $(STARTBCB)),)
+	-( cd kylix ; @STARTBCB@ xtrafclient.bpr -b )
+	-( cd kylix ; @STARTBCB@ xtrafserver.bpr -b )
+endif
+
+clean:
+	$(MAKE) -C cmdline $@
+	-rm *~ core
+	-rm -f kylix/*.~*
+	-rm -f kylix/*.o
+	-rm -f kylix/*.desk
+	-rm -f kylix/xtrafserver kylix/xtrafclient
+	-rm -f kylix/*.mak
+	-rm -f kylix/load*.cpp
+	-rm -f kylix/os.cpp
+
+dep:
+	$(MAKE) -C cmdline $@
+
+install:
+	$(MAKE) -C cmdline $@
+ifneq ($(strip $(STARTBCB)),)
+	-@INSTALL@ -d @bindir@
+	cd kylix ; @INSTALL_PROGRAM@ xtrafclient xtrafserver @bindir@/
+endif
+
+uninstall:
+	$(MAKE) -C cmdline $@
+

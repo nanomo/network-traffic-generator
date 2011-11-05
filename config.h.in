@@ -1,0 +1,67 @@
+#ifndef __CONFIG_H__
+#define __CONFIG_H__
+
+/* Define if you have <sys/wait.h> that is POSIX.1 compatible.  */
+#undef HAVE_SYS_WAIT_H
+
+/* Define if you need to in order for stat and other things to work.  */
+#undef _POSIX_SOURCE
+
+/* Define if you have the ANSI C header files.  */
+#undef STDC_HEADERS
+
+/* The number of bytes in a char.  */
+#undef SIZEOF_CHAR
+
+/* The number of bytes in a long unsigned.  */
+#undef SIZEOF_LONG_UNSIGNED
+
+/* The number of bytes in a short unsigned.  */
+#undef SIZEOF_SHORT_UNSIGNED
+
+/* The number of bytes in a unsigned.  */
+#undef SIZEOF_UNSIGNED
+
+/* Define if you have the <arpa/inet.h> header file.  */
+#undef HAVE_ARPA_INET_H
+
+/* Define if you have the <memory.h> header file.  */
+#undef HAVE_MEMORY_H
+
+/* Define if you have the <netdb.h> header file.  */
+#undef HAVE_NETDB_H
+
+/* Define if you have the <netinet/in.h> header file.  */
+#undef HAVE_NETINET_IN_H
+
+/* Define if you have the <sys/poll.h> header file.  */
+#undef HAVE_SYS_POLL_H
+
+/* Define if you have the <sys/socket.h> header file.  */
+#undef HAVE_SYS_SOCKET_H
+
+/* Define if you have the <sys/types.h> header file.  */
+#undef HAVE_SYS_TYPES_H
+
+/* Define if you have the <unistd.h> header file.  */
+#undef HAVE_UNISTD_H
+
+#if STDC_HEADERS
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#else
+#error You require the standard headers
+#endif
+
+#if HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
+#include "mytypes.h"
+
+#if defined(__WIN32__)
+#include <winsock.h>
+#endif
+
+#endif

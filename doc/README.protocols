@@ -1,0 +1,9 @@
+README for protocols for traffic
+--------------------------------
+
+Currently the following protocols are supported:
+
+IPV4 TCP with port ranges from 1 - 65534
+IPV4 UDP with port ranges from 1 - 65534
+
+The names of the protocols should always be specified in lower case.

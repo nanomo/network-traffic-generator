@@ -1,0 +1,1 @@
+- Will not report bytes read/write through connections already closed.

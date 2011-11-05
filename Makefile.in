@@ -1,0 +1,49 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+all:
+	$(MAKE) -C os all install
+	$(MAKE) -C protocols all install
+	$(MAKE) -C reply all install
+	$(MAKE) -C payload all install
+	$(MAKE) -C client all install
+	$(MAKE) -C server all install
+	$(MAKE) -C interface all
+
+dep:
+	$(MAKE) -C os $@
+	$(MAKE) -C protocols $@
+	$(MAKE) -C reply $@
+	$(MAKE) -C payload $@
+	$(MAKE) -C client $@
+	$(MAKE) -C server $@
+	$(MAKE) -C interface $@
+
+install:
+	$(MAKE) -C interface $@
+	-$(INSTALL) -d @libdir@/traffic/
+	$(INSTALL_PROGRAM) lib_dynamic/* @libdir@/traffic/
+
+uninstall:
+	$(MAKE) -C interface $@
+	-rm -rf @libdir@/traffic
+
+clean:
+	-rm *~ core lib_static/* lib_dynamic/* config.cache config.status config.log 
+	$(MAKE) -C client $@
+	$(MAKE) -C os $@
+	$(MAKE) -C payload $@
+	$(MAKE) -C protocols $@
+	$(MAKE) -C reply $@
+	$(MAKE) -C server $@
+	$(MAKE) -C interface $@
+
+really_clean: clean
+	-rm @MAKEFILE_LIST@
+	-rm configure config.h mytypes.h confdefs.h
+
+
+

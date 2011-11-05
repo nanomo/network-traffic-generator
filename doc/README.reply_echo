@@ -1,0 +1,7 @@
+README for echo reply for traffic
+--------------------------------
+
+This reply plug-in will echo the payload received. If the received packet is
+8 bytes, it will reply with 8 bytes. If it is 10,000, it will reply with
+10,000.
+

@@ -1,0 +1,15 @@
+README for interfaces to traffic
+--------------------------------
+
+Currently there is only one interface to traffic and that is the command
+line version. Documentation on how to use that can be found in
+cmdline/README.
+
+Each of the interfaces uses the plug-ins. The following plug-ins exist and
+documentation for them can be found under:
+
+README.server
+README.client
+README.protocols
+README.reply
+README.payload

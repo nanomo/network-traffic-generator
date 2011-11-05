@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.10"/>
+    <PROJECT value="./xtrafserver"/>
+    <OBJFILES value="xtrafserver.o traffic_server.o loadreply.o os.o loadserver.o 
+      loadprotocol.o about.o"/>
+    <RESFILES value="xtrafserver.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) traffic_server.xfm about.xfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="visualclx.a rtl.a"/>
+    <SPARELIBS value="rtl.a visualclx.a"/>
+    <PACKAGES value="rtl.bpi visualclx.bpi"/>
+    <PATHCPP value=".;../../reply:../../os:../../server:../../protocols"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)/lib/debug"/>
+    <RELEASELIBPATH value="$(BCB)/lib/release"/>
+    <LINKER value="ilink"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value=""/>
+    <MAINSOURCE value="xtrafserver.cpp"/>
+    <INCLUDEPATH value="../../../..:../../protocols:../../server:../../os:../../reply:$(BCB)/include/stlport:$(BCB)/include:$(BCB)/include/vcl:/usr/include"/>
+    <LIBPATH value="../../../..:../../protocols:../../server:../../os:../../reply:$(BCB)/lib/obj:$(BCB)/lib:/usr/lib:/lib:/usr/X11R6/lib:$(BCB)/bin"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-t -Od -H=$(HOME)/.borland/clx69.csm -Hc -Vx -Ve -X- -r- -a8 -5 -b- -k -y 
+      -v -vi- -c"/>
+    <PFLAGS value="-N2. -N0. -$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-I. -D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="borinit.o crt1.o $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="rtle.a $(LIBFILES) $(LIBRARIES) libborcrtl.a libborstl.a libborunwind.a 
+      libpthread.so libX11.so libc.so libm.so libdl.so "/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="xtrafserver.res" FORMNAME="" UNITNAME="xtrafserver.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="xtrafserver.cpp" FORMNAME="" UNITNAME="xtrafserver" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="traffic_server.cpp" FORMNAME="TrafficServerForm" UNITNAME="traffic_server" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="../../reply/loadreply.cpp" FORMNAME="" UNITNAME="loadreply" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="../../os/os.cpp" FORMNAME="" UNITNAME="os" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="../../server/loadserver.cpp" FORMNAME="" UNITNAME="loadserver" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="../../protocols/loadprotocol.cpp" FORMNAME="" UNITNAME="loadprotocol" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="about.cpp" FORMNAME="AboutBox" UNITNAME="about" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[HistoryLists\hlIncludePath]
+Count=3
+Item0=../../../..:../../protocols:../../server:../../os:../../reply:$(BCB)/include/stlport:$(BCB)/include:$(BCB)/include/vcl:/usr/include
+Item1=../../protocols:../../server:../../os:../../reply:$(BCB)/include/stlport:$(BCB)/include:$(BCB)/include/vcl:/usr/include
+Item2=$(BCB)/include/stlport:$(BCB)/include:$(BCB)/include/vcl:/usr/include
+
+[HistoryLists\hlLibraryPath]
+Count=3
+Item0=../../../..:../../protocols:../../server:../../os:../../reply:$(BCB)/lib/obj:$(BCB)/lib:/usr/lib:/lib:/usr/X11R6/lib:$(BCB)/bin
+Item1=../../protocols:../../server:../../os:../../reply:$(BCB)/lib/obj:$(BCB)/lib:/usr/lib:/lib:/usr/X11R6/lib:$(BCB)/bin
+Item2=$(BCB)/lib/obj:$(BCB)/lib:/usr/lib:/lib:/usr/X11R6/lib:$(BCB)/bin
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=1
+Item0=.
+
+[HistoryLists\hlFinalOutputDir]
+Count=1
+Item0=.
+
+[Debugging]
+DebugSourceDirs=
+
+[Parameters]
+RunParams=
+Launcher=/usr/X11R6/bin/xterm -T KylixDebuggerOutput -e bash -i -c %debuggee%
+UseLauncher=0
+DebugCWD=
+HostApplication=
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+  </IDEOPTIONS>
+</PROJECT>

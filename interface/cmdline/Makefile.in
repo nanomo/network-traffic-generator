@@ -1,0 +1,32 @@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+CPPFLAGS=@CPPFLAGS@
+ALL=trafclient trafserver
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+all: $(ALL)
+
+clean:
+	-rm $(ALL) *.o core *~ Makefile.dep
+
+dep: Makefile.dep
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+-include Makefile.dep
+
+trafclient: trafclient.o client_config.o
+	$(CC) -o $@ $^ -lstdc++ -L ../../lib_static/ -lloadpayload -lloadclient -lloadprotocol -los @LIBS@
+
+trafserver: trafserver.o server_config.o
+	$(CC) -o $@ $^ -lstdc++ -L ../../lib_static/ -lloadreply -lloadserver -lloadprotocol -los @LIBS@
+
+install:
+	-@INSTALL@ -d @bindir@
+	@INSTALL_PROGRAM@ $(ALL) @bindir@/
+
+uninstall:
+	-rm @bindir@/trafclient @bindir@/trafserver

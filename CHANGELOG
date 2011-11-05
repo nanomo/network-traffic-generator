@@ -1,0 +1,14 @@
+0.1.3.2
+	Fixed build issue if you do not have Kylix installed.
+0.1.3
+	Improved Windows port.
+	Added Kylix graphical interface for Linux.
+	Fixed the reply_* libraries to use libstdc++.
+0.1.2
+	Windows port and changes needed for that.
+
+0.1.1
+	FreeBSD port and changes needed for that.
+
+0.1.0
+	Total Rewrite

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.10"/>
+    <PROJECT value="./xtrafclient"/>
+    <OBJFILES value="xtrafclient.o traffic_client.o about.o loadpayload.o loadprotocol.o os.o 
+      loadclient.o"/>
+    <RESFILES value="xtrafclient.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) traffic_client.xfm about.xfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="visualclx.a rtl.a"/>
+    <SPARELIBS value="rtl.a visualclx.a"/>
+    <PACKAGES value="rtl.bpi visualclx.bpi"/>
+    <PATHCPP value=".;../../payload:../../protocols:../../os:../../client"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)/lib/debug"/>
+    <RELEASELIBPATH value="$(BCB)/lib/release"/>
+    <LINKER value="ilink"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value=""/>
+    <MAINSOURCE value="xtrafclient.cpp"/>
+    <INCLUDEPATH value="../../client:../../os:../../protocols:../../payload:$(BCB)/include/stlport:$(BCB)/include:$(BCB)/include/vcl:/usr/include"/>
+    <LIBPATH value="../../client:../../os:../../protocols:../../payload:$(BCB)/lib/obj:$(BCB)/lib:/usr/lib:/lib:/usr/X11R6/lib:$(BCB)/bin"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-t -Od -H=$(HOME)/.borland/clx69.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v 
+      -vi- -c"/>
+    <PFLAGS value="-N2. -N0. -$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-I. -D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="borinit.o crt1.o $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="rtle.a $(LIBFILES) $(LIBRARIES) libborcrtl.a libborstl.a libborunwind.a 
+      libpthread.so libX11.so libc.so libm.so libdl.so"/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="xtrafclient.res" FORMNAME="" UNITNAME="xtrafclient.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="xtrafclient.cpp" FORMNAME="" UNITNAME="xtrafclient" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="traffic_client.cpp" FORMNAME="TrafficClientForm" UNITNAME="traffic_client" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="about.cpp" FORMNAME="AboutBox" UNITNAME="about" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="../../payload/loadpayload.cpp" FORMNAME="" UNITNAME="loadpayload" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="../../protocols/loadprotocol.cpp" FORMNAME="" UNITNAME="loadprotocol" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="../../os/os.cpp" FORMNAME="" UNITNAME="os" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="../../client/loadclient.cpp" FORMNAME="" UNITNAME="loadclient" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=../../client:../../os:../../protocols:../../payload:$(BCB)/include/stlport:$(BCB)/include:$(BCB)/include/vcl:/usr/include
+Item1=$(BCB)/include/stlport:$(BCB)/include:$(BCB)/include/vcl:/usr/include
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=../../client:../../os:../../protocols:../../payload:$(BCB)/lib/obj:$(BCB)/lib:/usr/lib:/lib:/usr/X11R6/lib:$(BCB)/bin
+Item1=$(BCB)/lib/obj:$(BCB)/lib:/usr/lib:/lib:/usr/X11R6/lib:$(BCB)/bin
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=../../client:../../os:../../protocols:../../payload
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=1
+Item0=.
+
+[HistoryLists\hlFinalOutputDir]
+Count=2
+Item0=./
+Item1=.
+
+[Debugging]
+DebugSourceDirs=../../client:../../os:../../protocols:../../payload
+
+[Parameters]
+RunParams=
+Launcher=/usr/X11R6/bin/xterm -T KylixDebuggerOutput -e bash -i -c %debuggee%
+UseLauncher=0
+DebugCWD=
+HostApplication=
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+  </IDEOPTIONS>
+</PROJECT>

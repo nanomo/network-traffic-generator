@@ -1,0 +1,11 @@
+USEUNIT("..\cmdline\server_config.cpp");
+USEUNIT("..\cmdline\trafserver.cpp");
+USELIB("libos.lib");
+USELIB("loadreply.lib");
+USELIB("loadprotocol.lib");
+USELIB("loadserver.lib");
+USERES("trafserver.res");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main

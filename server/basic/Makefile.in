@@ -1,0 +1,22 @@
+ALL = server_basic.so
+CPPFLAGS = @CPPFLAGS@
+INSTALL = /usr//bin/install -c
+INSTALL_DATA = ${INSTALL} -m 644
+INSTALL_PROGRAM = ${INSTALL}
+
+all: $(ALL)
+
+clean:
+	-rm $(ALL) core Makefile.dep *.o *~
+
+Makefile.dep:
+	@FASTDEP@ *.cpp > Makefile.dep
+
+dep: Makefile.dep
+
+install:
+	$(INSTALL_PROGRAM) $(ALL) ../../lib_dynamic/
+
+server_basic.so: basic.o server_client.o server_listener.o ../../lib_static/libloadreply.a ../../lib_static/libloadprotocol.a ../../lib_static/libos.a
+	$(CC) --export-dynamic -shared -o $@ $^ -lgcc
+

@@ -1,0 +1,27 @@
+ALL = protocol_tcp.so tcp_test
+TCPOBJ = tcp_proto.o traffic_tcp.o tcp_connection.o tcp_server.o
+CPPFLAGS = @CPPFLAGS@
+INSTALL = @INSTALL@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+
+all: makefile.dep $(ALL)
+
+protocol_tcp.so: $(TCPOBJ)
+	$(CC) --export-dynamic -shared -o $@ $^ -lgcc  -L../../lib_static -los @LIBS@
+
+tcp_test: tcp_test.o $(TCPOBJ)
+	$(CC) -g -o $@ $^ -lstdc++ -L../../lib_static -los @LIBS@
+
+clean:
+	-rm $(TCPOBJ) core $(ALL) *~ *.o makefile.dep
+
+install:
+	$(INSTALL_PROGRAM) protocol_tcp.so ../../lib_dynamic/
+
+dep: makefile.dep
+
+makefile.dep:
+	@FASTDEP@ *.cpp > makefile.dep
+
+-include makefile.dep

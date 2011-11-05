@@ -1,0 +1,311 @@
+object TrafficServerForm: TTrafficServerForm
+  Left = 200
+  Top = 157
+  ActiveControl = ServerComboBox
+  AutoScroll = False
+  BorderStyle = fbsDialog
+  Caption = 'Traffic Server'
+  ClientHeight = 328
+  ClientWidth = 417
+  Color = clBackground
+  Position = poDesktopCenter
+  Scaled = False
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 81
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 609
+    Height = 417
+    TabOrder = 0
+    object SettingsPanel: TPanel
+      Left = 8
+      Top = 8
+      Width = 401
+      Height = 201
+      TabOrder = 0
+      object Label1: TLabel
+        Left = 8
+        Top = 16
+        Width = 42
+        Height = 17
+        Caption = 'Server'
+      end
+      object ServerComboBox: TComboBox
+        Left = 64
+        Top = 12
+        Width = 140
+        Height = 25
+        Hint = 'The type of server. Currently there is only one: basic.'
+        AutoComplete = True
+        Duplicates = dupIgnore
+        ItemHeight = 19
+        Items.Strings = (
+          'basic')
+        ItemIndex = 0
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        Text = 'basic'
+      end
+      object Label2: TLabel
+        Left = 208
+        Top = 16
+        Width = 36
+        Height = 17
+        Caption = 'Reply'
+      end
+      object ReplyComboBox: TComboBox
+        Left = 256
+        Top = 12
+        Width = 140
+        Height = 25
+        Hint = 
+          'The type of reply on a clients payload. Echo will send the paylo' +
+          'ad back as is. Ack will reply with a minimum sized payload.'
+        AutoComplete = True
+        Duplicates = dupIgnore
+        ItemHeight = 19
+        Items.Strings = (
+          'ack'
+          'echo')
+        ItemIndex = 0
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        Text = 'ack'
+      end
+      object KnownProtocolsListBox: TListBox
+        Left = 8
+        Top = 72
+        Width = 121
+        Height = 89
+        Hint = 'Known protocols that the server can listen on'
+        Items.Strings = (
+          'tcp'
+          'udp')
+        ParentShowHint = False
+        Rows = 2
+        ShowHint = True
+        TabOrder = 4
+      end
+      object ProtocolsListBox: TListBox
+        Left = 224
+        Top = 72
+        Width = 169
+        Height = 89
+        Hint = 
+          'Active protocol, port combinations that the server will listen o' +
+          'n'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 5
+      end
+      object AddBitBtn: TBitBtn
+        Left = 136
+        Top = 72
+        Width = 75
+        Height = 25
+        Hint = 'Add a protocol, port combination to the list of active protocols'
+        Caption = '&Add'
+        ModalResult = 5
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 6
+        OnClick = AddBitBtnClick
+        NumGlyphs = 2
+      end
+      object RemoveBitBtn: TBitBtn
+        Left = 136
+        Top = 104
+        Width = 75
+        Height = 25
+        Hint = 
+          'Remove a protocol, port combination from the list of active prot' +
+          'ocols'
+        Caption = '&Remove'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 7
+        OnClick = RemoveBitBtnClick
+      end
+      object ClearBitBtn: TBitBtn
+        Left = 136
+        Top = 136
+        Width = 75
+        Height = 25
+        Hint = 'Clear the list of active protocols'
+        Caption = '&Clear'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 8
+        OnClick = ClearBitBtnClick
+      end
+      object Label3: TLabel
+        Left = 8
+        Top = 48
+        Width = 106
+        Height = 17
+        Caption = 'Known Protocols'
+      end
+      object Label4: TLabel
+        Left = 264
+        Top = 48
+        Width = 101
+        Height = 17
+        Caption = 'Active Protocols'
+      end
+      object Label5: TLabel
+        Left = 8
+        Top = 168
+        Width = 26
+        Height = 17
+        AutoSize = False
+        Caption = 'Port'
+      end
+      object PortEdit: TSpinEdit
+        Left = 40
+        Top = 168
+        Width = 89
+        Height = 25
+        Hint = 
+          'The port plus a known protocol can be added to the list of activ' +
+          'e protocols'
+        Max = 65534
+        Min = 1
+        TabOrder = 12
+        Value = 11111
+        ParentShowHint = False
+        ShowHint = True
+      end
+    end
+    object Panel2: TPanel
+      Left = 8
+      Top = 216
+      Width = 401
+      Height = 41
+      TabOrder = 1
+      object StartButton: TBitBtn
+        Left = 16
+        Top = 8
+        Width = 75
+        Height = 25
+        Hint = 'Start Listening on Active Protocol/Ports.'
+        Caption = '&Start'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        OnClick = StartButtonClick
+        Glyph.Data = {
+          6A010000424D6601000000000000760000002800000014000000140000000100
+          040000000000F0000000120B0000120B00001000000010000000000000000000
+          8000008000000080800080000000800080008080000080808000C0C0C0000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00888888888888
+          8888888800008888888888888888888800008888888888888888888800008888
+          88888888777777780000888888888880000000780000888888888840FBFBF078
+          0000888888888480000000880000888888884888888888880000887777748888
+          77777778000080000007777000000078000080FFFF044440FBFBF07800008000
+          0008788000000088000088888884878888888888000088888888487877777778
+          0000888888888480000000780000888888888840FBFBF0780000888888888880
+          0000008800008888888888888888888800008888888888888888888800008888
+          88888888888888880000}
+      end
+      object StopButton: TBitBtn
+        Left = 112
+        Top = 8
+        Width = 75
+        Height = 25
+        Hint = 'Stop listening on active protocols/ports.'
+        Caption = '&Stop'
+        Enabled = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        OnClick = StopButtonClick
+        Glyph.Data = {
+          6A010000424D6601000000000000760000002800000014000000140000000100
+          040000000000F0000000120B0000120B00001000000010000000000000000000
+          BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00777777777777
+          7777777700007777711111111177777700007777199999999917777700007771
+          9999999999917777000077199999999999991777000071999999999999999177
+          000019999999999999999917000019FFF99F99FFF9F9991700001999F99F99F9
+          F9F99917000019FFF99F99F9F9FFF917000019F9999F99F9F9F9F917000019FF
+          F9FFF9FFF9FFF917000019999999999999999917000019999999999999999917
+          0000719999999999999991770000771999999999999917770000777199999999
+          9991777700007777199999999917777700007777711111111177777700007777
+          77777777777777770000}
+      end
+      object AboutButton: TBitBtn
+        Left = 208
+        Top = 8
+        Width = 75
+        Height = 25
+        Hint = 'Help!'
+        Caption = '&About'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        OnClick = AboutButtonClick
+        Kind = bkHelp
+      end
+      object QuitBitBtn: TBitBtn
+        Left = 304
+        Top = 8
+        Width = 75
+        Height = 25
+        Hint = 'Quit the program.'
+        Caption = '&Quit'
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        OnClick = QuitBitBtnClick
+        Kind = bkClose
+      end
+    end
+    object Panel3: TPanel
+      Left = 8
+      Top = 264
+      Width = 401
+      Height = 57
+      TabOrder = 2
+      object BytesReadLabel1: TLabel
+        Left = 8
+        Top = 8
+        Width = 128
+        Height = 17
+        Caption = 'Payload Bytes Read'
+      end
+      object BytesWrittenLabel1: TLabel
+        Left = 8
+        Top = 32
+        Width = 139
+        Height = 17
+        Caption = 'Payload Bytes Written'
+      end
+      object BytesReadLabel: TLabel
+        Left = 160
+        Top = 8
+        Width = 225
+        Height = 17
+        AutoSize = False
+        Caption = '0'
+      end
+      object BytesWrittenLabel: TLabel
+        Left = 160
+        Top = 32
+        Width = 233
+        Height = 17
+        AutoSize = False
+        Caption = '0'
+      end
+    end
+  end
+  object ActivityTimer: TTimer
+    Enabled = False
+    OnTimer = ActivityTimerTimer
+    Left = 208
+    Top = 280
+  end
+end

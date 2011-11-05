@@ -1,0 +1,15 @@
+Begin4
+Title: Traffic
+Version: 0.1.2
+Entered-date: 2002-11-24
+Description: Network Traffic Generator is used to check what massive amounts of traffic of certain types 
+	     will do to an intervening network.
+Keywords: network testing load traffic
+Author: <Robert Sandilands> rsandila@netscape.net
+Maintained-by: <Robert Sandilands> rsandila@netscape.net
+Primary-site: http://rsandila.webhop.org/traffic.html
+Alternate-site: 
+Original-site: None
+Platforms: 
+Copying-policy: GPL
+End
