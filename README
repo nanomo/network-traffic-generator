@@ -1,0 +1,174 @@
+README for Traffic
+------------------
+
+1. What is traffic?
+2. Who should use it?
+3. License
+4. Guarantees
+5. Authors
+6. Known Bugs
+7. Changes
+8. Dependencies
+9. Compiling
+10. Installing
+11. Usage
+12. Concepts
+
+1. What is traffic?
+-------------------
+Traffic is a network traffic generator following a server/client model
+for generating high volumes of traffic on a network. This could be
+used to test the ability of a router/firewall/VPN to handle continuous
+high traffic loads. It is optimally used in an development
+environment. It does not measure throughput or number of connections
+per second or anything like this.
+
+2. Who should use it?
+---------------------
+Responsible software developers in a test environment that needs to
+know how their router/firewall/VPN holds up against continuous high
+traffic loads. You should be careful to use this tool only in
+environments where it will not affect the normal day to day operations
+of your coworkers.
+
+
+3. License
+----------
+This software is released under the GPL license as described in the
+file LICENSE.
+
+4. Guarantees
+-------------
+I have tested this software and it works for me. I can not take
+responsibility for what anybody does with this software and whether
+this software is fit or not for any purpose stated or not in any
+documents. It is as-is. If you break it, you get to keep all the
+pieces.
+
+5. Authors
+----------
+Please look at the AUTHORS file.
+
+6. Known bugs
+-------------
+Please look for the files named KNOWNBUGS distributed throughout the
+directory structure.
+
+7. Changes
+----------
+From version 0.0.2: Total and complete redesign and rewrite. 0% code
+re-use. Everything is new. Any new changes will be in the CHANGELOG
+file, if it exists.
+
+8. Dependencies
+---------------
+This is projects, programs or libraries you need to compile or use
+this project. It can be found in the file DEPENDS
+
+9. Compiling
+------------
+Thus far this has only been tested under Mandrake Linux 8.2 and 9.0,
+and FreeBSD 4.6 and compiles fine. Windows porting has been done for Borland C++ 5.0.
+
+9.1. Linux
+----------
+To compile first run "autoconf" in the main directory. Then run
+"./configure". Then run "make". 
+
+The binaries can be found under the "interface" subdirectory. Any
+documentation will also be found there.
+
+9.2. FreeBSD
+------------
+To compile first run "autoconf" in the main directory. Then run
+"./configure". Then run "gmake". 
+
+The binaries can be found under the "interface" subdirectory. Any
+documentation will also be found there.
+
+9.3. Windows
+------------
+1. Rename config.win to config.h.
+2. Rename mytypes.win to mytypes.win
+3. Open Borland Builder and open the traffic.bpg in the interface/borland directory.
+Compile everything. The executables and DLL's will end up in this directory.
+
+9.4. Kylix
+----------
+1. autoconf
+2. ./configure --with-kylix3=[kylix base directory /usr/local/kylix3]
+3. make
+4. The destination files will be in interface/kylix
+5. You will need libborqt-6.9.0-qt2.3.so from the kylix3/bin directory to
+run the applications.
+
+10. Installing
+--------------
+
+10.1 Linux
+----------
+After compiling run "make install". You need to have administrative 
+privileges to run "make install". The default destination for traffic 
+is "/usr/local/bin" and "/usr/local/lib/traffic". Under FreeBSD use gmake.
+
+To remove traffic run "make uninstall". Under FreeBSD use gmake.
+
+10.2. FreeBSD
+-------------
+After compiling run "gmake install". You need to have administrative 
+privileges to run "gmake install". The default destination for traffic 
+is "/usr/local/bin" and "/usr/local/lib/traffic".
+
+To remove traffic run "gmake uninstall".
+
+10.3. Windows
+-------------
+There is an Installshield for the Web package available for download to use for a binary
+install. If you don't want to use that copy the .exe and .dll files from the 
+interface/borland directory to the same destination directory.
+
+11. Usage
+---------
+Please look at the README's for the relevant interface you have
+selected to use. All documentation can be found under the doc directory.
+
+
+12. Concepts
+------------
+This rewritten version of "traffic" has been totally redesigned to
+make an expandable platform for testing network traffic. Currently it
+only supports a simplistic command line interface and the TCP and UDP
+protocols. But with the needed plug-ins it can be extended to do nearly
+anything. Each type of plug-in has been written to be as generic as
+possible and to make writing new powerful ones easy.
+
+Traffic is divided into a client and a server. You run the server on
+the one interface of the router/firewall/VPN you need to test and the
+client on as many other interfaces as you need to.
+
+12.1. Client Concepts
+---------------------
+The client needs to know what protocol it should use and what the data
+must look like it should send. There is also some ability to have
+clients that behave differently. Thus each of these is a plug-in that
+can be loaded and made to communicate with each other.
+
+Thus you have a client plug-in, a protocol plug-in and a payload
+plug-in. The payload plug-in determines the shape and size of the data
+sent through the protocol to the server. The protocol plug-in delivers
+the content provided by the payload plug-in and reads a reply. This
+reply is discarded. The client plug-in calls the payload and protocol
+plug-ins to allow everything to happen.
+
+12.2. Server Concepts
+---------------------
+The server needs to know what protocols it should know about and how
+it should reply to the received data. It is also possible that
+different servers may want to act differently. Thus each of these is a
+plug-in that can be loaded and made to communicate with each other.
+
+You have a server plug-in, a protocol plug-in and a reply plug-in. The
+protocol plug-in is the same one as used by the client. The reply
+plug-in is passed the payload as received from the client and must
+return a reply that will be sent to the client. The server plug-in
+facilitates all of this.
